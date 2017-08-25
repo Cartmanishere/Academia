@@ -1,0 +1,23 @@
+{% extends "Practicals/layout.html" %}
+{% block body %}
+    <body style="font-size:40px;font-family:Verdana">
+    <div id="heading" class="title">
+        <h1>{{ subject_name }}<br /> <small>Practicals</small></h1>
+    </div>
+    {% if practicals %}
+
+
+        <div id="subjects" align="center" width="60%">
+
+                    {% for practical in practicals %}
+                    <h3><a href="{{ practical.id }}/">{{ practical.name }}</a></h3>
+                     {% endfor %}
+
+        </div>
+    {% else %}
+        <p>Coming Soon.</p>
+    {% endif %}
+
+
+
+{% endblock %}

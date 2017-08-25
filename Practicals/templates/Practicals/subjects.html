@@ -1,0 +1,23 @@
+{% extends "Practicals/layout.html" %}
+{% block body %}
+    {% if subjects %}
+        <body style="font-size:40px;font-family:Verdana">
+
+        <div id="heading">
+        <h1>CSE 2nd Year<br /> <small>Practicals</small></h1>
+        </div>
+
+        <div id="subjects" align="center" width="60%">
+
+                    {% for subject in subjects %}
+                    <h3><a href="{{ subject.subject_name }}/qty">{{ subject.subject_name }}</a></h3>
+                     {% endfor %}
+
+        </div>
+    {% else %}
+        <p>Coming Soon.</p>
+    {% endif %}
+
+
+
+{% endblock %}

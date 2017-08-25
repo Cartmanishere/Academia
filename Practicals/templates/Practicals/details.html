@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'practicals/styles.css' %}" />
+<script src="{% static 'practicals/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'practicals/bootstrap.min.js' %}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Main</title>
+</head>
+{% if practical %}
+{% if objectives %}
+<body>
+<center>
+
+	<div id="heading" class="title">
+	<h1>{{ practical.name }}<br /></h1>
+	</div>
+
+	<section class="box" id="pr1" align="center">
+        <h2 class="box-title">Aim: {{ practical.aim }}</h2>
+        <div class="box-content">
+          <ul>
+    			{% for objective in objectives %}
+        		<li>{{ objective|linebreaks }}</li>
+   				 {% endfor %}
+    		</ul>
+        </div>
+        <h2 class="box-title">Additional Resources: </h2>
+        <div class="box-content">
+          <ul>
+              {% if practical.additional %}
+                  <li><a href="{{ practical.additional }}" target="_blank">Resources</a></li>
+              {% else %}
+                  <li>Coming Soon</li>
+                  {% endif %}
+           </ul>
+        </div>
+      </section>
+    {% endif %}
+		{% else %}
+    		<p>Coming Soon.</p>
+		{% endif %}
+    <footer class="panel-footer">
+        <p>with <span class="heart">❤</span> by Pranav</p>
+      </footer>
+    </center>
+
+</body>
+</html>
